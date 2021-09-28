@@ -10,6 +10,7 @@ import { TemplateModule } from './template/template.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostModule } from './post/post.module';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import { PostModule } from './post/post.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     TemplateModule,
-    PostModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

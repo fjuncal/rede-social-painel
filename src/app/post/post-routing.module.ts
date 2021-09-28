@@ -8,7 +8,9 @@ import { LayoutComponent } from '../layout/layout.component';
 const routes: Routes = [
   {path: 'post', component: LayoutComponent, children: [
     {path: "form", component: PostFormComponent},
+    {path: "form/:id", component: PostFormComponent},
     {path: "unico", component: PostCardComponent},
+    {path: "unico/:id", component: PostCardComponent},
     {path: "lista", component: PostListComponent},
     {path: '', redirectTo: "/clientes/lista", pathMatch: 'full'}
   ]},

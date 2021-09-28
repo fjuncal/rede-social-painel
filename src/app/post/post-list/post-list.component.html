@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 <header class="py-5 bg-light border-bottom mb-4">
   <div class="container">
       <div class="text-center my-5">
@@ -10,60 +12,33 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-8" >
       <!-- Featured blog post-->
       <div class="card mb-4">
-          <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+          <a (click)="expandir(posts[0].id)"><img class="card-img-top" src="https://blog.futfanatics.com.br/wp-content/uploads/2020/08/regras-do-futebol-americano-touchdown-768x432.jpg" alt="..." /></a>
           <div class="card-body">
-              <div class="small text-muted">January 1, 2021</div>
-              <h2 class="card-title">Featured Post Title</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-              <a class="btn btn-primary" href="/post/unico">Read more →</a>
+              <div class="small text-muted">{{ posts[0]?.dataPost }}</div>
+              <h2 class="card-title">{{ posts[0]?.tiulo }}</h2>
+              <p class="card-text">{{ posts[0]?.texto }}</p>
+              <button class="btn btn-primary" (click)="expandir(posts[0].id)">Leia mais →</button>
+              <button class="btn btn-danger" style="float: right;" (click)="remover(posts[0].id)"><i class="fas fa-trash-alt"></i></button>
+              <button class="btn btn-warning mr-2" style="float: right;" (click)="editar(posts[0].id)"><i class="fas fa-edit"></i></button>
           </div>
       </div>
       <!-- Nested row for non-featured blog posts-->
       <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" *ngFor="let post of posts">
               <!-- Blog post-->
               <div class="card mb-4">
-                  <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                  <a (click)="expandir(post.id)"><img class="card-img-top" src="https://mrvnoesporte.com.br/wp-content/uploads/2018/11/251807-futebol-americano-no-brasil-conheca-a-historia-e-as-equipes-mais-marcantes.jpg" alt="..." /></a>
                   <div class="card-body">
-                      <div class="small text-muted">January 1, 2021</div>
-                      <h2 class="card-title h4">Post Title</h2>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                      <a class="btn btn-primary" href="#!">Read more →</a>
-                  </div>
-              </div>
-              <!-- Blog post-->
-              <div class="card mb-4">
-                  <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                  <div class="card-body">
-                      <div class="small text-muted">January 1, 2021</div>
-                      <h2 class="card-title h4">Post Title</h2>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                      <a class="btn btn-primary" href="#!">Read more →</a>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <!-- Blog post-->
-              <div class="card mb-4">
-                  <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                  <div class="card-body">
-                      <div class="small text-muted">January 1, 2021</div>
-                      <h2 class="card-title h4">Post Title</h2>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                      <a class="btn btn-primary" href="#!">Read more →</a>
-                  </div>
-              </div>
-              <!-- Blog post-->
-              <div class="card mb-4">
-                  <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                  <div class="card-body">
-                      <div class="small text-muted">January 1, 2021</div>
-                      <h2 class="card-title h4">Post Title</h2>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                      <a class="btn btn-primary" href="#!">Read more →</a>
+                      <div class="small text-muted">{{ post.dataPost }}</div>
+                      <h2 class="card-title h4">{{ post.tiulo }}</h2>
+                      <p class="card-text">{{ post.texto }}</p>
+                      <button class="btn btn-primary" (click)="expandir(post.id)">Leia mais →</button>
+                      <button class="btn btn-danger" style="float: right;" (click)="remover(post.id)"><i class="fas fa-trash-alt"></i></button>
+                      <button class="btn btn-warning mr-2" style="float: right;" (click)="editar(post.id)"><i class="fas fa-edit"></i></button>
+
                   </div>
               </div>
           </div>

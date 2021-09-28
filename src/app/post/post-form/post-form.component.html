@@ -1,4 +1,5 @@
 <body>
+  <form >
   <div class="container contact">
     <div class="row">
       <div class="col-md-3">
@@ -14,28 +15,36 @@
           <div class="form-group">
             <label class="control-label col-sm-2" for="titulo">Título:</label>
             <div class="col-sm-10">
-            <input type="text" class="form-control" id="titulo" placeholder="Insira o titulo da postagem" name="titulo">
+            <input type="text" class="form-control" id="titulo" [(ngModel)]="post.tiulo" placeholder="Insira o titulo da postagem" name="tiulo">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="foto">Foto:</label>
+            <label class="control-label col-sm-2" for="foto">Assunto:</label>
             <div class="col-sm-10">
-            <input type="file" class="form-control" id="foto" placeholder="Entre com a foto" name="foto">
+              <select class="form-select form-control" [(ngModel)]="post.assunto" name="assunto">
+                <option value="Contratação">Contratação</option>
+                <option value="Jogos da Semana">Jogos da Semana</option>
+                <option value="Polêmica">Polemica</option>
+                <option value="Desfalque">Desfalque</option>
+                <option value="Outros">Outros</option>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="comentario">Comentário:</label>
+            <label class="control-label col-sm-2" for="comentario">Texto:</label>
             <div class="col-sm-10">
-            <textarea class="form-control" rows="5" id="comentario"></textarea>
+            <textarea class="form-control" rows="5" id="texto" [(ngModel)]="post.texto" name="texto"></textarea>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Postar</button>
+            <button *ngIf="editando === false" (click)="cadastrar()"class="btn btn-default">Postar</button>
             </div>
           </div>
+          <button *ngIf="editando" (click)="editar()"class="btn btn-default">Editar</button>
         </div>
       </div>
     </div>
   </div>
+</form>
 </body>

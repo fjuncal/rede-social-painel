@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,11 +13,13 @@ import { PostCardComponent } from './post-card/post-card.component';
   declarations: [
     PostFormComponent,
     PostListComponent,
-    PostCardComponent
+    PostCardComponent,
   ],
   imports: [
     CommonModule,
-    PostRoutingModule
+    PostRoutingModule,
+    AppRoutingModule,
+    FormsModule
   ]
 })
 export class PostModule { }
