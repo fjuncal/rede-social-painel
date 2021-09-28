@@ -1,6 +1,6 @@
 export class Post{
   id: number;
-  tiulo: string;
+  titulo: string;
   foto: string;
   texto: string;
   autor: string;

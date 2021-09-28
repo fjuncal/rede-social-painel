@@ -13,9 +13,15 @@
       <div class="col-md-9">
         <div class="contact-form">
           <div class="form-group">
+            <label class="control-label col-sm-2" for="titulo">Autor:</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="autor" [(ngModel)]="post.autor" placeholder="Insira o responsável pela postagem" name="autor">
+            </div>
+          </div>
+          <div class="form-group">
             <label class="control-label col-sm-2" for="titulo">Título:</label>
             <div class="col-sm-10">
-            <input type="text" class="form-control" id="titulo" [(ngModel)]="post.tiulo" placeholder="Insira o titulo da postagem" name="tiulo">
+            <input type="text" class="form-control" id="titulo" [(ngModel)]="post.titulo" placeholder="Insira o titulo da postagem" name="tiulo">
             </div>
           </div>
           <div class="form-group">

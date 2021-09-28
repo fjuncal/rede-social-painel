@@ -1,9 +1,11 @@
+import { ComentarioService } from './../../servicos/comentario.service';
 import { Post } from './../models/post';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PostsService } from './../../servicos/posts.service';
 import { Component, OnInit } from '@angular/core';
+import { Comentario } from '../models/comentario';
 
 @Component({
   selector: 'app-post-card',
@@ -13,9 +15,14 @@ import { Component, OnInit } from '@angular/core';
 export class PostCardComponent implements OnInit {
 
   post: Post;
+  comentario: Comentario;
+  autor: string;
+  texto: string;
+  todosComentarios: Comentario[] = [];
 
-  constructor(private postService: PostsService, private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) {
+  constructor(private postService: PostsService, private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient, private comentarioService: ComentarioService) {
     this.post = new Post();
+    this.comentario = new Comentario();
   }
 
   ngOnInit(): void {
@@ -28,10 +35,23 @@ export class PostCardComponent implements OnInit {
         })
       }
     })
+    this.comentarioService.getAll().subscribe(response => {
+      this.todosComentarios = response;
+    })
   }
 
-  teste(){
-    console.log(this.post);
+  cadastrarComentario(){
+    this.comentarioService.salvar(this.comentario).subscribe(response => {
+    })
+    this.router.navigate([`/post/lista`])
+
+  }
+
+  remover(id: number){
+    this.comentarioService.remover(id).subscribe(response => {
+
+    });
+    window.location.reload();
 
   }
 

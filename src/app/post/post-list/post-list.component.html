@@ -18,7 +18,8 @@
           <a (click)="expandir(posts[0].id)"><img class="card-img-top" src="https://blog.futfanatics.com.br/wp-content/uploads/2020/08/regras-do-futebol-americano-touchdown-768x432.jpg" alt="..." /></a>
           <div class="card-body">
               <div class="small text-muted">{{ posts[0]?.dataPost }}</div>
-              <h2 class="card-title">{{ posts[0]?.tiulo }}</h2>
+              <h2 class="card-title">{{ posts[0]?.titulo }}</h2>
+              <h4 class="small text-muted">Autor/a: {{ posts[0]?.autor }}</h4>
               <p class="card-text">{{ posts[0]?.texto }}</p>
               <button class="btn btn-primary" (click)="expandir(posts[0].id)">Leia mais →</button>
               <button class="btn btn-danger" style="float: right;" (click)="remover(posts[0].id)"><i class="fas fa-trash-alt"></i></button>
@@ -33,7 +34,8 @@
                   <a (click)="expandir(post.id)"><img class="card-img-top" src="https://mrvnoesporte.com.br/wp-content/uploads/2018/11/251807-futebol-americano-no-brasil-conheca-a-historia-e-as-equipes-mais-marcantes.jpg" alt="..." /></a>
                   <div class="card-body">
                       <div class="small text-muted">{{ post.dataPost }}</div>
-                      <h2 class="card-title h4">{{ post.tiulo }}</h2>
+                      <h2 class="card-title h4">{{ post.titulo }}</h2>
+                      <h4 class="small text-muted">Autor/a: {{ post.autor }}</h4>
                       <p class="card-text">{{ post.texto }}</p>
                       <button class="btn btn-primary" (click)="expandir(post.id)">Leia mais →</button>
                       <button class="btn btn-danger" style="float: right;" (click)="remover(post.id)"><i class="fas fa-trash-alt"></i></button>
